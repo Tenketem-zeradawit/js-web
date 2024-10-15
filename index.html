@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+</style>
+</head>
+<body>
+
+ 
+     <script>
+         function guessNumber() {
+             const randomNumber = Math.floor(Math.random() * 10) + 1;
+             const userGuess = document.getElementById("guess").value;
+             const messageElement = document.getElementById("message");
+ 
+             if (userGuess == randomNumber) {
+                 messageElement.textContent = "Good Work! The correct number was " + randomNumber; // paragraph element (<p id="message"> 
+                    //text conternt to set the visible text inside the messageElement
+                 messageElement.className = "text-success";
+             } else {
+                 messageElement.textContent = "Not matched " + randomNumber;
+                 messageElement.className = "text-danger";
+             }
+         }
+
+         function results() {
+   
+    const a = parseInt(document.getElementById('a').value);
+    const b = parseInt(document.getElementById('b').value);
+
+    let result;
+    if (a === b) {
+        result = 3 * (a + b); 
+    } else {
+        result = a + b; 
+    }
+
+    
+    document.getElementById('result').innerHTML = "Result: " + result;
+
+    // Make the result card visible
+    document.getElementById('result-card').style.display = 'block';
+}
+        //  range 50-99
+        function checkRange() {
+            const num1 = parseInt(document.getElementById('num1-range').value);
+            const num2 = parseInt(document.getElementById('num2-range').value);
+
+            let inRange = ((num1 >= 50 && num1 <= 99) || (num2 >= 50 && num2 <= 99));
+            document.getElementById('range-result').innerHTML = "Result: " + inRange;
+        }
+
+        //  closer to 100
+        function findClosest() {
+            const num1 = parseInt(document.getElementById('num1-closest').value);
+            const num2 = parseInt(document.getElementById('num2-closest').value);
+
+            let closest = (Math.abs(100 - num1) < Math.abs(100 - num2)) ? num1 : num2;
+            document.getElementById('closest-result').innerHTML = "Closest to 100: " + closest;
+        }
+
+        // num 6
+        let items = [];
+function addItem() {
+  const input = document.getElementById("inputField").value;
+  if (input) {
+    items.push(input);
+    document.getElementById("inputField").value = ""; 
+  }
+}
+
+function displayItems() {
+  // Find the element where the items will be displayed
+  const displayList = document.getElementById("displayList");
+
+  
+  displayList.innerHTML = "";
+
+  
+  for (let i = 0; i < items.length; i++) {
+    
+    const listItem = document.createElement("li");
+
+    listItem.textContent = "Element " + (i + 1) + " = " + items[i];
+
+    displayList.appendChild(listItem);
+  }
+}
+
+
+     </script>
+ </head>
+ <body>
+<div class="All">
+
+    
+ <div style="display: flex;justify-content: space-around;">
+<!-- //1 -->
+<div class="container mt-5"> 
+    <div class="card mx-auto" style="width: 400px;">
+        <div class="card-header">Calculate Sum and 3 of Multiplication</div>
+        <div class="card-body">
+            <input type="text" id="a" class="form-control mb-3" placeholder="Enter first number">
+            <input type="text" id="b" class="form-control mb-3" placeholder="Enter second number">
+            <button type="button" onclick="results()" class="btn btn-primary w-100">Result</button>
+        </div>
+    </div>
+
+    <div class="card mx-auto mt-3" id="result-card" style="width:400px; display: none;">
+        <div class="card-body">
+            <h5 class="card-title">Calculation Result</h5>
+            <p class="card-text" id="result"></p>
+        </div>
+    </div>
+</div>
+
+<!-- num 23 -->
+
+    
+     <div class="container mt-5">
+        
+            
+             <div class="col-md-6">
+                 <div class="card "style="width: 400px; height: 210px">
+
+        <div class="card-header">Guess the Number Game</div>
+
+                     <div class="card-body">
+                         
+                         <div class="mb-3">
+                             <input type="number" class="form-control" id="guess" placeholder="Enter your guess" >
+                         </div>
+                        
+                         <div class="d-grid">
+                             <button onclick="guessNumber()" class="btn btn-primary">Submit Guess</button>
+                         </div>
+                         
+                         <p id="message" class="mt-3 text-center"></p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+<!-- 45 -->
+
+
+    <div class="container mt-5">
+
+        <div class="card mx-auto mb-4" style="width: 400px;">
+            <div class="card-header">Is the numebr is between 50-99 ?</div>
+
+            <div class="card-body">
+                
+               
+                <input type="text" id="num1-range" class="form-control mb-3" placeholder="Enter first number">
+                <input type="text" id="num2-range" class="form-control mb-3" placeholder="Enter second number">
+                <button type="button" onclick="checkRange()" class="btn btn-primary w-100">Check Range</button>
+                <p class="mt-3" id="range-result"></p>
+            </div>
+        </div>
+       </div>
+       
+        
+
+</div>
+
+</div>
+<div class="last">
+    <div style="display: flex;justify-content: space-around;">
+<div class="container mt-5">
+
+    <div class="card mx-auto" style="width: 400px;">
+        <div class="card-header">Find Closest to 100</div>
+
+        <div class="card-body">
+           
+            <input type="text" id="num1-closest" class="form-control mb-3" placeholder="Enter first number">
+            <input type="text" id="num2-closest" class="form-control mb-3" placeholder="Enter second number">
+            <button type="button" onclick="findClosest()" class="btn btn-primary w-100">Find Closest</button>
+            <p class="mt-3" id="closest-result"></p>
+        </div>
+    </div>
+
+</div>
+<!-- 6 -->
+
+
+<div class="container mt-5">
+    <div class="card" style="width: 400px;">
+      <div class="card-header">Input Form</div>
+      <div class="card-body">
+        <input type="text" id="inputField" class="form-control" placeholder="Enter text">
+        <br>
+        <button class="btn btn-primary" onclick="addItem()">Add</button>
+        <button class="btn btn-secondary ml-2" onclick="displayItems()">Display</button>
+      </div>
+    </div>
+
+    <div class="card mt-3"style="width: 400px;"  >
+      <div class="card-header">Display Area</div>
+      <div class="card-body">
+        <ul id="displayList" class="list-group"></ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+ </body>
+ </html>
+ 
